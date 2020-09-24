@@ -4,6 +4,8 @@
   "description": "Cours PWA\r #Mise a jour",
   "main": "main.js",
   "scripts": {
+    "jsonserver": "json-server -p 3001 --watch db.json",
+	
     "start": "live-server --port=3000",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
