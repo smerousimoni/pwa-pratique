@@ -1,0 +1,3 @@
+# fichier .gitignore à la racine qui évite de polluer le repo git
+# puisque toutes les dépendances sont dans le fichier package.json
+node_modules/

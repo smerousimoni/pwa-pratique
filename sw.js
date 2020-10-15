@@ -104,6 +104,7 @@ self.addEventListener('fetch', (evt) => {
 });
 
 // 7.3 Notifications persistantes (envoyées depuis le service worker)
+/*
 self.registration.showNotification("Notification du SW", {
     body:"je suis une notification dite persistante",
   
@@ -113,7 +114,7 @@ self.registration.showNotification("Notification du SW", {
         {action: "refuse", title: "refuser"}
     ]
 })
-
+/*
 // 7.4 Options de notifications grâce aux actions
 // Ecouteur au clic d'un des deux boutons de la notification
 self.addEventListener("notificationclick", evt => {
@@ -130,7 +131,21 @@ self.addEventListener("notificationclick", evt => {
     evt.notification.close();
 })
 	
- 
+ */
+
+// 8.1 Intercepter une notification push
+self.addEventListener("push", evt => {
+    console.log("push event", evt);
+    console.log("data envoyée par la push notification :", evt.data.text());
+
+    // 8.1 afficher son contenu dans une notification
+    const title = evt.data.text();
+    const objNotification = {
+        body: "ça fonctionne", 
+        icon : "images/icons/icon-72x72.png"
+    };
+    self.registration.showNotification(title, objNotification);
+})
 	
 // Ecoute de l'événement close
 	
